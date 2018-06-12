@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSPU_SmartLockProcService.B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSPU_SmartLock.APP", "SSPU_SmartLock.APP\SSPU_SmartLock.APP.csproj", "{52381C0D-EAAA-42D6-BAE9-66657B9E0A21}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSPU_SmartLockTestService", "SSPU_SmartLockTestService\SSPU_SmartLockTestService.csproj", "{13FBB8C4-6740-4555-AFBA-2094B1CF37CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{52381C0D-EAAA-42D6-BAE9-66657B9E0A21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52381C0D-EAAA-42D6-BAE9-66657B9E0A21}.Release|Any CPU.Build.0 = Release|Any CPU
 		{52381C0D-EAAA-42D6-BAE9-66657B9E0A21}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{13FBB8C4-6740-4555-AFBA-2094B1CF37CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13FBB8C4-6740-4555-AFBA-2094B1CF37CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13FBB8C4-6740-4555-AFBA-2094B1CF37CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13FBB8C4-6740-4555-AFBA-2094B1CF37CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

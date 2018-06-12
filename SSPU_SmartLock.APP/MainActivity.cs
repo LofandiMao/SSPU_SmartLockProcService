@@ -5,6 +5,9 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 
+using MQTTnet;
+
+
 namespace SSPU_SmartLock.APP
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
@@ -37,6 +40,24 @@ namespace SSPU_SmartLock.APP
             _textMessage = FindViewById<TextView>(Resource.Id.message);
             BottomNavigationView navigation = FindViewById<BottomNavigationView>(Resource.Id.navigation);
             navigation.SetOnNavigationItemSelectedListener(this);
+
+            StartMqttConnect();
+        }
+
+        private void StartMqttConnect()
+        {
+            var factory = new MqttFactory();
+            var mqttClient = factory.CreateMqttClient();
+            var options = new MQTTnet.Client.MqttClientOptionsBuilder()
+                          .WithTcpServer("39.105.111.94", 1883)
+                          .WithClientId("10010").Build();
+            mqttClient.Connected += MqttClient_Connected;
+            mqttClient.ConnectAsync(options);
+        }
+
+        private void MqttClient_Connected(object sender, MQTTnet.Client.MqttClientConnectedEventArgs e)
+        {
+            _textMessage.SetText(1);
         }
     }
 }
