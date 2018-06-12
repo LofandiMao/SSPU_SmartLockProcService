@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSPU_SmartLockProcService.UI", "SSPU_SmartLockProcService\SSPU_SmartLockProcService.UI.csproj", "{9A8A27B2-38EC-470F-ACC3-78129AA5C393}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSPU_SmartLockProcService.DAL", "SSPU_SmartLockProcService.DAL\SSPU_SmartLockProcService.DAL.csproj", "{DAA07734-1BBB-4816-9601-839F8D81701C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSPU_SmartLockProcService.BLL", "SSPU_SmartLockProcService.BLL\SSPU_SmartLockProcService.BLL.csproj", "{3D2E7FDB-8891-407B-8291-FDD393DF68A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSPU_SmartLock.APP", "SSPU_SmartLock.APP\SSPU_SmartLock.APP.csproj", "{52381C0D-EAAA-42D6-BAE9-66657B9E0A21}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A8A27B2-38EC-470F-ACC3-78129AA5C393}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A8A27B2-38EC-470F-ACC3-78129AA5C393}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A8A27B2-38EC-470F-ACC3-78129AA5C393}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A8A27B2-38EC-470F-ACC3-78129AA5C393}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAA07734-1BBB-4816-9601-839F8D81701C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAA07734-1BBB-4816-9601-839F8D81701C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAA07734-1BBB-4816-9601-839F8D81701C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAA07734-1BBB-4816-9601-839F8D81701C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D2E7FDB-8891-407B-8291-FDD393DF68A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D2E7FDB-8891-407B-8291-FDD393DF68A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D2E7FDB-8891-407B-8291-FDD393DF68A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D2E7FDB-8891-407B-8291-FDD393DF68A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52381C0D-EAAA-42D6-BAE9-66657B9E0A21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52381C0D-EAAA-42D6-BAE9-66657B9E0A21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52381C0D-EAAA-42D6-BAE9-66657B9E0A21}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{52381C0D-EAAA-42D6-BAE9-66657B9E0A21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52381C0D-EAAA-42D6-BAE9-66657B9E0A21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52381C0D-EAAA-42D6-BAE9-66657B9E0A21}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9658F67B-3E01-4446-901D-4262959FCEA4}
+	EndGlobalSection
+EndGlobal
