@@ -27,7 +27,7 @@ namespace SSPU_SmartLockTestService
 
             var optionsBuilder = new MqttServerOptionsBuilder()
                                     .WithConnectionBacklog(100)
-                                    .WithDefaultEndpointPort(1883);
+                                    .WithDefaultEndpointPort(1883); 
 
             mqttServer.ClientConnected += MqttServer_ClientConnected;
 
