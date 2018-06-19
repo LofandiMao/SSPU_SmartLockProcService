@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using uPLibrary.Networking.M2Mqtt.Messages;
 
-namespace SSPU_SmartLockProcService.BLL
+namespace SSPU_SmartLockProcService.BLL.Pakages
 {
     class MqttTopic
     {

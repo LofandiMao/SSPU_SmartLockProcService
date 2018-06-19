@@ -25,6 +25,7 @@ namespace SSPU_SmartLockProcService
             SmartLockService lockService = new SmartLockService();
 
             lockService.MqttSubscribed += LockService_MqttSubscribed;
+            lockService.MqttErroOccurred += LockService_MqttErroOccurred;
             try
             {
                 lockService.Start();
@@ -33,6 +34,12 @@ namespace SSPU_SmartLockProcService
             {
                 rtbLog.AppendText(ex.Message + "\r\n");
             }
+        }
+
+        private void LockService_MqttErroOccurred(object sender, BLL.ServerEventArgs.MqttErroEventArgs e)
+        {
+            string text = e.ErroID + "发生错误：" + e.ErroString + "\r\n";
+            Invoke(new AppendTextToRtbDelegate(AppedRichTextBox), text);
         }
 
         private void LockService_MqttSubscribed(object sender, BLL.ServerEventArgs.MqttSubscribedEventArgs e)
@@ -45,7 +52,7 @@ namespace SSPU_SmartLockProcService
             }
             text += "}\r\n";
 
-            Invoke(new AppendTextToRtbDelegate(AppedRichTextBox), text); //线程通过方法的委托执行showStuIfo()，实现对ListBox控件的访问
+            Invoke(new AppendTextToRtbDelegate(AppedRichTextBox), text); 
         }
 
         private void AppedRichTextBox(string text)

@@ -3,6 +3,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
 using uPLibrary.Networking.M2Mqtt;
 using SSPU_SmartLockProcService.BLL.ServerEventArgs;
+using SSPU_SmartLockProcService.BLL.Pakages;
 
 namespace SSPU_SmartLockProcService.BLL
 {
@@ -43,7 +44,7 @@ namespace SSPU_SmartLockProcService.BLL
         //证书文件路径
         private string cerFile = Environment.CurrentDirectory + "\\root.cer";
 
-        private readonly string _host = "39.105.111.94";
+        private readonly string _host = "127.0.0.1";
         private readonly int _port = 1883;
         private readonly string _user = "admin";
         private readonly string _password = "public";
@@ -119,22 +120,31 @@ namespace SSPU_SmartLockProcService.BLL
 
         private void Client_MqttMsgPublishReceived(object sender, uPLibrary.Networking.M2Mqtt.Messages.MqttMsgPublishEventArgs e)
         {
-
-            switch (e.Topic)
+            try
             {
-                case MqttTopic.RegisterTopic:
-                    SmartLockRegister smartLock = new SmartLockRegister(e.Message);
-                    byte[] resArray = smartLock.PackageResponse();
-                    MqttClient client = (MqttClient)sender;
-                    string resTopic = MqttTopic.GetClientTopic("SYS", smartLock.SmartLockClient.IotID,"REG");
-                    client.Publish(resTopic, resArray);
-                    break;
-                case MqttTopic.EventTopic:
-                    break;
-                case MqttTopic.RespondTopic:
-                    break;
-                case MqttTopic.DataTopic:
-                    break;
+
+                switch (e.Topic)
+                {
+                    case MqttTopic.RegisterTopic:
+                        SmartLockRegister smartLock = new SmartLockRegister(e.Message);
+                        byte[] resArray = smartLock.PackageResponse();
+                        MqttClient client = (MqttClient)sender;
+                        string resTopic = MqttTopic.GetClientTopic("SYS", smartLock.SmartLockClient.IotID, "REG");
+                        client.Publish(resTopic, resArray);
+                        break;
+                    case MqttTopic.EventTopic:
+                        SmartLockDataPackage dataPackage = new SmartLockDataPackage(e.Message);
+                        break;
+                    case MqttTopic.RespondTopic:
+                        break;
+                    case MqttTopic.DataTopic:
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MqttErroEventArgs eventArgs = new MqttErroEventArgs((sender as MqttClient).ClientId, ex.Message);
+                RaiseMqttErroOccurred(eventArgs);
             }
 
         }
@@ -183,6 +193,15 @@ namespace SSPU_SmartLockProcService.BLL
         private void RaiseMqttPublished(MqttMsgPublishedEventArgs eventArgs)
         {
             MqttPublished?.Invoke(this, new MqttMsgPublishedEventArgs());
+        }
+        /// <summary>
+        /// 错误发生事件
+        /// </summary>
+        public event EventHandler<MqttErroEventArgs> MqttErroOccurred;
+
+        private void RaiseMqttErroOccurred(MqttErroEventArgs eventArgs)
+        {
+            MqttErroOccurred?.Invoke(this, new MqttErroEventArgs(eventArgs.ErroID,eventArgs.ErroString));
         }
     }
 }

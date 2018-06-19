@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace SSPU_SmartLockProcService.DAL
 {
-    public class Class1
+    public class Logs
     {
+        private readonly string logFilePath = Environment.CurrentDirectory;
+
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 
-namespace SSPU_SmartLockProcService.BLL
+namespace SSPU_SmartLockProcService.BLL.Pakages
 {
     class SmartLockClient
     {        

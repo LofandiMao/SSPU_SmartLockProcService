@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using SSPU_SmartLockProcService.BLL;
 
-namespace SSPU_SmartLockProcService.BLL
+namespace SSPU_SmartLockProcService.BLL.Pakages
 {
     class SmartLockRegister
     {
@@ -42,13 +42,11 @@ namespace SSPU_SmartLockProcService.BLL
         /// <summary>
         /// 从package中获得client相关参数
         /// </summary>
-        /// <param name="package"></param>
+        /// <param name="package">设备的注册包</param>
         public SmartLockRegister(byte[] package)
         {
             try
             {
-             
-
                 string msgString = Encoding.Default.GetString(package);
                 JObject msgJson = JObject.Parse(msgString);
 
@@ -62,9 +60,9 @@ namespace SSPU_SmartLockProcService.BLL
 
                 SmartLockParsePackage();
             }
-            catch
+            catch (Exception ex)
             {
-                throw new Exception("注册包解析错误，数据可能不是JSON格式!");
+                throw new Exception("Register包解析错误!" + ex.Message);
             }
         }
 

@@ -83,18 +83,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ServerEventArgs\MqttErroEventArgs.cs" />
     <Compile Include="ServerEventArgs\MqttMsgPublishReceived.cs" />
     <Compile Include="ServerEventArgs\MqttDisconnectEventArgs.cs" />
     <Compile Include="ServerEventArgs\MqttMsgPublishedEventArgs.cs" />
     <Compile Include="ServerEventArgs\MqttSubscribedEventArgs.cs" />
-    <Compile Include="ServerEventArgs\MqttTopic.cs" />
-    <Compile Include="SmartLockClient.cs" />
-    <Compile Include="SmartLockRegister.cs" />
+    <Compile Include="Pakages\MqttTopic.cs" />
+    <Compile Include="Pakages\SmartLockClient.cs" />
+    <Compile Include="Pakages\SmartLockDataPackage.cs" />
+    <Compile Include="Pakages\SmartLockRegister.cs" />
     <Compile Include="SmartLockService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Readme.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
