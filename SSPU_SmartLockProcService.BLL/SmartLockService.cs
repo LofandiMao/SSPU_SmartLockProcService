@@ -5,6 +5,7 @@ using uPLibrary.Networking.M2Mqtt;
 using SSPU_SmartLockProcService.BLL.ServerEventArgs;
 using SSPU_SmartLockProcService.BLL.Pakages;
 
+
 namespace SSPU_SmartLockProcService.BLL
 {
     public class SmartLockService
@@ -44,7 +45,7 @@ namespace SSPU_SmartLockProcService.BLL
         //证书文件路径
         private string cerFile = Environment.CurrentDirectory + "\\root.cer";
 
-        private readonly string _host = "127.0.0.1";
+        private readonly string _host = "server.finework.win";
         private readonly int _port = 1883;
         private readonly string _user = "admin";
         private readonly string _password = "public";
@@ -82,6 +83,8 @@ namespace SSPU_SmartLockProcService.BLL
                     {;
                         client.Subscribe(MqttTopic.topic, MqttTopic.qoslevel);
                     }
+                    isConnected = client.IsConnected;
+         
                 }
                 catch (Exception ex)
                 {

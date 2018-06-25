@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SSPU_SmartLockProcService.BLL;
+using SSPU_SmartLockProcService.DAL;
 
 namespace SSPU_SmartLockProcService
 {
@@ -33,12 +34,14 @@ namespace SSPU_SmartLockProcService
             catch (Exception ex)
             {
                 rtbLog.AppendText(ex.Message + "\r\n");
+                Logs.Error(ex.Message);
             }
         }
 
         private void LockService_MqttErroOccurred(object sender, BLL.ServerEventArgs.MqttErroEventArgs e)
         {
             string text = e.ErroID + "发生错误：" + e.ErroString + "\r\n";
+            Logs.Error(e.ErroString);
             Invoke(new AppendTextToRtbDelegate(AppedRichTextBox), text);
         }
 
@@ -52,12 +55,15 @@ namespace SSPU_SmartLockProcService
             }
             text += "}\r\n";
 
+            Logs.Log(text);
+
             Invoke(new AppendTextToRtbDelegate(AppedRichTextBox), text); 
         }
 
         private void AppedRichTextBox(string text)
         {
             rtbLog.Text += DateTime.Now.ToLongTimeString() + ":" + text;
+            
         }
     }
 }

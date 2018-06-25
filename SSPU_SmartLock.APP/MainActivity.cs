@@ -49,7 +49,7 @@ namespace SSPU_SmartLock.APP
             var factory = new MqttFactory();
             var mqttClient = factory.CreateMqttClient();
             var options = new MQTTnet.Client.MqttClientOptionsBuilder()
-                          .WithTcpServer("39.105.111.94", 1883)
+                          .WithTcpServer("server.finework.win", 1883)
                           .WithClientId("10010").Build();
             mqttClient.Connected += MqttClient_Connected;
             mqttClient.ConnectAsync(options);

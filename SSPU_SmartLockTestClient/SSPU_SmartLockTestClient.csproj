@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9A8A27B2-38EC-470F-ACC3-78129AA5C393}</ProjectGuid>
+    <ProjectGuid>{D1683F60-FF4A-4962-9735-47F97B47AA1C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>SSPU_SmartLockProcService</RootNamespace>
-    <AssemblyName>SSPU_SmartLockProcService</AssemblyName>
+    <RootNamespace>SSPU_SmartLockTestClient</RootNamespace>
+    <AssemblyName>SSPU_SmartLockTestClient</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,6 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="M2Mqtt.Net, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\M2Mqtt.4.3.0.0\lib\net45\M2Mqtt.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,14 +51,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SSPU_mainForm.cs">
+    <Compile Include="DeviceClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SSPU_mainForm.Designer.cs">
-      <DependentUpon>SSPU_mainForm.cs</DependentUpon>
+    <Compile Include="DeviceClient.Designer.cs">
+      <DependentUpon>DeviceClient.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DeviceClient.resx">
+      <DependentUpon>DeviceClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,9 +71,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SSPU_mainForm.resx">
-      <DependentUpon>SSPU_mainForm.cs</DependentUpon>
-    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -77,16 +84,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SSPU_SmartLockProcService.BLL\SSPU_SmartLockProcService.BLL.csproj">
-      <Project>{3d2e7fdb-8891-407b-8291-fdd393df68a8}</Project>
-      <Name>SSPU_SmartLockProcService.BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SSPU_SmartLockProcService.DAL\SSPU_SmartLockProcService.DAL.csproj">
-      <Project>{daa07734-1bbb-4816-9601-839f8d81701c}</Project>
-      <Name>SSPU_SmartLockProcService.DAL</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
